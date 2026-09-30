@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FitBuddy AI — Coach</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/">FitBuddy <span>AI</span></a><nav><a href="/">My plan</a><a href="/coach">Coach dashboard</a><a href="/docs">API docs</a></nav></header>
+  <main class="container">
+    <section class="hero compact"><div><p class="eyebrow">Coach view</p><h1>See plan activity at a glance.</h1><p>Review users, generated plans and recent feedback stored in the local SQLite database.</p></div></section>
+    <section id="stats" class="stats"></section>
+    <section class="grid two">
+      <section class="card"><div class="card-head"><h2>Users</h2><button id="reload" class="ghost">Refresh</button></div><div id="users"></div></section>
+      <section class="card"><div class="card-head"><h2>Recent feedback</h2></div><div id="feedback"></div></section>
+    </section>
+  </main>
+  <script src="/static/coach.js"></script>
+</body>
+</html>

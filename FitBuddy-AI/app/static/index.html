@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FitBuddy AI</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">FitBuddy <span>AI</span></a>
+    <nav><a href="/">My plan</a><a href="/coach">Coach dashboard</a><a href="/docs">API docs</a></nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">AI-powered wellness planning</p>
+        <h1>Build a routine that fits your real life.</h1>
+        <p>Tell FitBuddy about your goals, schedule and preferences. Generate a practical plan, then improve it with feedback.</p>
+      </div>
+      <div class="hero-card"><strong>Local-first demo</strong><span>Works without a Gemini key.</span></div>
+    </section>
+
+    <section class="grid two">
+      <form id="profileForm" class="card">
+        <div class="card-head"><h2>Your profile</h2><span id="modeBadge" class="badge">Loading…</span></div>
+        <div class="form-grid">
+          <label>Name<input name="name" required value="Aisha"></label>
+          <label>Age<input name="age" type="number" min="13" max="100" required value="21"></label>
+          <label>Goal<select name="goal"><option value="general_fitness">General fitness</option><option value="weight_loss">Weight loss</option><option value="strength">Strength</option><option value="muscle_gain">Muscle gain</option><option value="mobility">Mobility</option></select></label>
+          <label>Experience<select name="experience"><option>beginner</option><option>intermediate</option><option>advanced</option></select></label>
+          <label>Days / week<input name="days_per_week" type="number" min="1" max="7" value="4"></label>
+          <label>Minutes / session<input name="session_minutes" type="number" min="10" max="180" value="45"></label>
+          <label>Diet<select name="diet"><option value="balanced">Balanced</option><option value="vegetarian">Vegetarian</option><option value="vegan">Vegan</option><option value="high_protein">High protein</option><option value="other">Other</option></select></label>
+          <label>Equipment<input name="equipment" placeholder="dumbbells, mat"></label>
+          <label class="full">Limitations / considerations<textarea name="limitations" placeholder="Optional"></textarea></label>
+          <label class="full">Preferences<textarea name="preferences" placeholder="Short workouts, outdoor cardio, etc."></textarea></label>
+        </div>
+        <button class="primary" type="submit">Save profile & generate plan</button>
+        <p id="profileStatus" class="status"></p>
+      </form>
+
+      <section class="card plan-card">
+        <div class="card-head"><h2>Current plan</h2><button id="refreshPlan" class="ghost">Generate again</button></div>
+        <div id="planEmpty" class="empty">Create your profile to generate your first plan.</div>
+        <div id="planView" hidden></div>
+      </section>
+    </section>
+
+    <section id="feedbackSection" class="card" hidden>
+      <div class="card-head"><h2>How did it feel?</h2><span>Feedback updates the next plan.</span></div>
+      <form id="feedbackForm" class="feedback-grid">
+        <label>Rating<select name="rating"><option value="5">5 — Excellent</option><option value="4">4 — Good</option><option value="3">3 — Okay</option><option value="2">2 — Difficult</option><option value="1">1 — Very difficult</option></select></label>
+        <label>Energy<select name="energy"><option>good</option><option>high</option><option>okay</option><option>low</option></select></label>
+        <label>Difficulty<select name="difficulty"><option value="just_right">Just right</option><option value="too_easy">Too easy</option><option value="too_hard">Too hard</option></select></label>
+        <label class="wide">Comments<textarea name="comments" placeholder="What should FitBuddy change next time?"></textarea></label>
+        <button class="primary" type="submit">Save feedback</button>
+      </form>
+      <p id="feedbackStatus" class="status"></p>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
